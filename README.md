@@ -32,10 +32,14 @@ The [mode][mode] for a [F][f-distribution] random variable with numerator degree
 
 <!-- <equation class="equation" label="eq:f_mode" align="center" raw="\operatorname{mode}\left( X \right) = \frac{d_{1}-2}{d_{1}} \; \frac{d_{2}}{d_{2}+2}" alt="Mode for an F distribution."> -->
 
-<div class="equation" align="center" data-raw-text="\operatorname{mode}\left( X \right) = \frac{d_{1}-2}{d_{1}} \; \frac{d_{2}}{d_{2}+2}" data-equation="eq:f_mode">
+```math
+\operatorname{mode}\left( X \right) = \frac{d_{1}-2}{d_{1}} \; \frac{d_{2}}{d_{2}+2}
+```
+
+<!-- <div class="equation" align="center" data-raw-text="\operatorname{mode}\left( X \right) = \frac{d_{1}-2}{d_{1}} \; \frac{d_{2}}{d_{2}+2}" data-equation="eq:f_mode">
     <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@51534079fef45e990850102147e8945fb023d1d0/lib/node_modules/@stdlib/stats/base/dists/f/mode/docs/img/equation_f_mode.svg" alt="Mode for an F distribution.">
     <br>
-</div>
+</div> -->
 
 <!-- </equation> -->
 
@@ -229,7 +233,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 -->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://gitter.im/stdlib-js/stdlib/
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
