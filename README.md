@@ -69,7 +69,7 @@ for `d1 > 2` and `d2 > 0`. Otherwise, the mode is not defined.
 ## Usage
 
 ```javascript
-import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-f-mode@esm/index.mjs';
+import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-f-mode@v0.2.0-esm/index.mjs';
 ```
 
 #### mode( d1, d2 )
@@ -145,7 +145,7 @@ v = mode( 3.0, -1.0 );
 
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
 import EPS from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-eps@esm/index.mjs';
-import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-f-mode@esm/index.mjs';
+import mode from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-f-mode@v0.2.0-esm/index.mjs';
 
 var d1;
 var d2;
