@@ -62,38 +62,32 @@ for `d1 > 2` and `d2 > 0`. Otherwise, the mode is not defined.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-dists-f-mode
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-mode = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-f-mode@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var mode = require( 'path/to/vendor/umd/stats-base-dists-f-mode/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-f-mode@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.mode;
-})();
-</script>
+var mode = require( '@stdlib/stats-base-dists-f-mode' );
 ```
 
 #### mode( d1, d2 )
@@ -161,16 +155,11 @@ v = mode( 3.0, -1.0 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each-map@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-eps@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-f-mode@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var uniform = require( '@stdlib/random-array-uniform' );
+var logEachMap = require( '@stdlib/console-log-each-map' );
+var EPS = require( '@stdlib/constants-float64-eps' );
+var mode = require( '@stdlib/stats-base-dists-f-mode' );
 
 var opts = {
     'dtype': 'float64'
@@ -179,11 +168,6 @@ var d1 = uniform( 10, EPS, 10.0, opts );
 var d2 = uniform( 10, EPS, 10.0, opts );
 
 logEachMap( 'd1: %0.4f, d2: %0.4f, mode(X;d1,d2): %0.4f', d1, d2, mode );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -192,7 +176,99 @@ logEachMap( 'd1: %0.4f, d2: %0.4f, mode(X;d1,d2): %0.4f', d1, d2, mode );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/stats/base/dists/f/mode.h"
+```
+
+#### stdlib_base_dists_f_mode( d1, d2 )
+
+Evaluates the [mode][mode] of an [F][f-distribution] distribution with parameters `d1` (numerator degrees of freedom) and `d2` (denominator degrees of freedom).
+
+```c
+double out = stdlib_base_dists_f_mode( 3.0, 5.0 );
+// returns ~0.238
+```
+
+The function accepts the following arguments:
+
+-   **d1**: `[in] double` numerator degrees of freedom.
+-   **d2**: `[in] double` denominator degrees of freedom.
+
+```c
+double stdlib_base_dists_f_mode( const double d1, const double d2 );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/stats/base/dists/f/mode.h"
+#include "stdlib/constants/float64/eps.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+static double random_uniform( const double min, const double max ) {
+    double v = (double)rand() / ( (double)RAND_MAX + 1.0 );
+    return min + ( v*(max-min) );
+}
+
+int main( void ) {
+    double d1;
+    double d2;
+    double y;
+    int i;
+
+    for ( i = 0; i < 25; i++ ) {
+        d1 = random_uniform( STDLIB_CONSTANT_FLOAT64_EPS, 10.0 );
+        d2 = random_uniform( STDLIB_CONSTANT_FLOAT64_EPS, 10.0 );
+        y = stdlib_base_dists_f_mode( d1, d2 );
+        printf( "d1: %lf, d2: %lf, mode(X;d1,d2): %lf\n", d1, d2, y );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -236,7 +312,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
@@ -249,8 +325,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/stats-base-dists-f-mode.svg
 [npm-url]: https://npmjs.org/package/@stdlib/stats-base-dists-f-mode
 
-[test-image]: https://github.com/stdlib-js/stats-base-dists-f-mode/actions/workflows/test.yml/badge.svg?branch=main
-[test-url]: https://github.com/stdlib-js/stats-base-dists-f-mode/actions/workflows/test.yml?query=branch:main
+[test-image]: https://github.com/stdlib-js/stats-base-dists-f-mode/actions/workflows/test.yml/badge.svg?branch=v0.3.0
+[test-url]: https://github.com/stdlib-js/stats-base-dists-f-mode/actions/workflows/test.yml?query=branch:v0.3.0
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/stats-base-dists-f-mode/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/stats-base-dists-f-mode?branch=main
@@ -262,8 +338,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 -->
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+[chat-image]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+[chat-url]: https://stdlib.zulipchat.com
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
